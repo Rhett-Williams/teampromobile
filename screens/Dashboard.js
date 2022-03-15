@@ -83,9 +83,9 @@ const Dashboard = () => {
                   return (
                     <ListItem 
                        key={i}           
-                       bottomDivider>
-                      <ListItem.Content>
-                        <ListItem.Title>{res.text}</ListItem.Title>
+                       bottomDivider >
+                      <ListItem.Content style={styles.msgtext}>
+                        <ListItem.Title >{res.text}</ListItem.Title>
                       </ListItem.Content>
                     </ListItem>
                   );
@@ -98,28 +98,51 @@ const Dashboard = () => {
 
 
   return (
+    <View>
     <View style={styles.container}>
-        <Text>Messages</Text>
+      <View style={styles.msgcontainer}>
+        <Text style={styles.messagesText}>Messages</Text>
+        </View>
         <FetchListScreen/>
-      <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
     </View>
+    <TouchableOpacity
+    onPress={handleSignOut}
+    style={styles.button}
+  >
+    <Text style={styles.buttonText}>Sign out</Text>
+  </TouchableOpacity>
+  </View>
   )
 }
 
 export default Dashboard
 
 const styles = StyleSheet.create({
-  
+  container: {
+    backgroundColor: 'white',
+    width: '90%',
+    padding: 15,
+    borderRadius: 10,
+    left: '5%',
+    justifyContent: 'center',
+    marginTop: 40,
+  },
+  msgcontainer: {
+    borderBottomColor: '#002E27',
+    borderBottomWidth: 2,
+  },
+  messagesText: {
+    fontSize: 30,
+    color: "#002E27",
+  },
    button: {
-    backgroundColor: '#0782F9',
+    backgroundColor: '#002E27',
     width: '60%',
     padding: 15,
     borderRadius: 10,
+    width: '80%',
+    left: '10%',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
   },
@@ -128,4 +151,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
+  msgtext: {
+    backgroundColor: "#E8E8E8",
+    padding: 15,
+    borderRadius: 10,
+  },
+
 })
